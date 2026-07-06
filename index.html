@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accessible Algebra I Mini-Course</title>
-    <link rel="icon" type="image/svg+xml" href="/Algebra-I-Mini-Course/favicon.svg">
-    <meta name="description" content="A beginner-friendly, accessible Algebra I mini-course with interactive quizzes and clear explanations.">
+    <meta name="description" content="A beginner-friendly, accessible Pre-Algebra and Algebra I mini-course with interactive quizzes and clear explanations.">
     <script>
         window.MathJax = {
             tex: {
@@ -101,11 +100,186 @@
             margin-top: 20px;
             border-radius: 5px;
         }
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+        }
+        .skip-link:focus {
+            left: 20px;
+            top: 20px;
+            background: #0b3d91;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 6px;
+            z-index: 1000;
+        }
+        .home-screen {
+            background: #eef4fb;
+            border: 2px solid #0b3d91;
+            border-radius: 10px;
+            padding: 32px 24px;
+            margin-bottom: 28px;
+        }
+        .course-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .course-button, .back-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            min-width: 220px;
+            padding: 12px 18px;
+            border-radius: 8px;
+            background-color: #0b3d91;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .course-button.secondary {
+            background-color: #4d6eaa;
+        }
+        .course-button:hover, .course-button:focus-visible, .back-link:hover, .back-link:focus-visible {
+            background-color: #082a5f;
+        }
+        .back-link {
+            min-width: 180px;
+            margin-bottom: 16px;
+            background-color: #4d6eaa;
+        }
+        .accessibility-note {
+            margin-top: 16px;
+            font-weight: 600;
+            color: #22374d;
+        }
+        .course-page {
+            margin-top: 8px;
+        }
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#algebra-course">Skip to the Algebra course</a>
     <main id="main-content">
-        <h1>Unit 1: Foundations of Algebra</h1>
+        <section class="home-screen" aria-labelledby="home-title">
+            <h1 id="home-title">Course Hub</h1>
+            <div class="course-options" role="group" aria-label="Course selection">
+                <a href="#prealgebra-course" class="course-button">Pre-Algebra</a>
+                <a href="#algebra-course" class="course-button">Algebra I</a>
+            </div>
+        </section>
+
+        <section id="prealgebra-course" class="course-page" aria-labelledby="prealgebra-title">
+            <a class="back-link" href="#main-content">Back to course selection</a>
+            <div class="note" role="contentinfo">
+                <p><strong>Tip:</strong> Use the keyboard to navigate the quiz fields. Type the letter, then press Tab to move to the submit button or press Enter after the button is focused.</p>
+            </div>
+            <h2 id="prealgebra-title">Unit 0: Foundations of Pre-Algebra</h2>
+            <p>Welcome to this accessible Pre-Algebra mini-course. Each lesson includes a short explanation and a quick interactive checkpoint for practice.</p>
+
+            <section class="lesson-block" aria-labelledby="pa-lesson1-title">
+                <h2 id="pa-lesson1-title">Lesson 1: Order of Operations</h2>
+                <h3>What is the Order of Operations?</h3>
+                <p>When a math expression has more than one operation, we follow a set order so everyone gets the same answer. This order is often remembered with <strong>PEMDAS</strong>: Parentheses, Exponents, Multiplication and Division (left to right), Addition and Subtraction (left to right).</p>
+                <p><strong>Example:</strong> Evaluate <span aria-label="three plus four times two">\[3 + 4 \times 2\]</span>.</p>
+                <ol>
+                    <li>Multiply first: <span aria-label="four times two equals eight">\[4 \times 2 = 8\]</span></li>
+                    <li>Add: <span aria-label="three plus eight">\[3 + 8\]</span></li>
+                    <li>Result: <strong>11</strong></li>
+                </ol>
+
+                <div class="quiz-container">
+                    <h3>Practice Checkpoint</h3>
+                    <p><strong>Question 1:</strong> Evaluate <span aria-label="ten minus two times three">\[10 - 2 \times 3\]</span>.</p>
+                    <ul>
+                        <li><strong>Option A:</strong> 4</li>
+                        <li><strong>Option B:</strong> 24</li>
+                        <li><strong>Option C:</strong> 8</li>
+                    </ul>
+                    <p class="hint-text">Hint: Multiply before you subtract.</p>
+                    <div class="input-group">
+                        <label for="pa-q1-input">Your Answer (A, B, or C):</label>
+                        <input type="text" id="pa-q1-input" maxlength="1" aria-describedby="pa-q1-feedback" autocomplete="off">
+                        <button type="button" onclick="checkAnswer('pa-1', 'A')">Submit</button>
+                    </div>
+                    <div id="pa-q1-feedback" class="feedback" aria-live="polite"></div>
+                </div>
+            </section>
+
+            <section class="lesson-block" aria-labelledby="pa-lesson2-title">
+                <h2 id="pa-lesson2-title">Lesson 2: Working with Integers</h2>
+                <h3>What are Integers?</h3>
+                <p><strong>Integers</strong> are whole numbers that can be positive, negative, or zero. When adding or subtracting integers, it helps to think of a number line.</p>
+                <p><strong>Example:</strong> Evaluate <span aria-label="negative five plus eight">\[-5 + 8\]</span>.</p>
+                <ol>
+                    <li>Start at -5 on the number line.</li>
+                    <li>Move 8 spaces to the right.</li>
+                    <li>Result: <strong>3</strong></li>
+                </ol>
+
+                <div class="quiz-container">
+                    <h3>Practice Checkpoint</h3>
+                    <p><strong>Question 2:</strong> Evaluate <span aria-label="negative four minus six">\[-4 - 6\]</span>.</p>
+                    <ul>
+                        <li><strong>Option A:</strong> 2</li>
+                        <li><strong>Option B:</strong> -2</li>
+                        <li><strong>Option C:</strong> -10</li>
+                    </ul>
+                    <p class="hint-text">Hint: Subtracting a positive number moves you further left on the number line.</p>
+                    <div class="input-group">
+                        <label for="pa-q2-input">Your Answer (A, B, or C):</label>
+                        <input type="text" id="pa-q2-input" maxlength="1" aria-describedby="pa-q2-feedback" autocomplete="off">
+                        <button type="button" onclick="checkAnswer('pa-2', 'C')">Submit</button>
+                    </div>
+                    <div id="pa-q2-feedback" class="feedback" aria-live="polite"></div>
+                </div>
+            </section>
+
+            <section class="lesson-block" aria-labelledby="pa-lesson3-title">
+                <h2 id="pa-lesson3-title">Lesson 3: Fractions, Decimals, and Percents</h2>
+                <h3>Converting Between Forms</h3>
+                <p>Fractions, decimals, and percents are three ways of writing the same value. To change a fraction to a decimal, divide the numerator by the denominator. To change a decimal to a percent, multiply by 100.</p>
+                <p><strong>Example:</strong> Convert <span aria-label="one over four">\[\frac{1}{4}\]</span> to a decimal and a percent.</p>
+                <ol>
+                    <li>Divide: <span aria-label="one divided by four equals zero point two five">\[1 \div 4 = 0.25\]</span></li>
+                    <li>Multiply by 100: <strong>25%</strong></li>
+                </ol>
+
+                <div class="quiz-container">
+                    <h3>Practice Checkpoint</h3>
+                    <p><strong>Question 3:</strong> What is <span aria-label="one over five">\(\frac{1}{5}\)</span> written as a percent?</p>
+                    <ul>
+                        <li><strong>Option A:</strong> 5%</li>
+                        <li><strong>Option B:</strong> 20%</li>
+                        <li><strong>Option C:</strong> 50%</li>
+                    </ul>
+                    <p class="hint-text">Hint: First divide 1 by 5 to get the decimal, then multiply by 100.</p>
+                    <div class="input-group">
+                        <label for="pa-q3-input">Your Answer (A, B, or C):</label>
+                        <input type="text" id="pa-q3-input" maxlength="1" aria-describedby="pa-q3-feedback" autocomplete="off">
+                        <button type="button" onclick="checkAnswer('pa-3', 'B')">Submit</button>
+                    </div>
+                    <div id="pa-q3-feedback" class="feedback" aria-live="polite"></div>
+                </div>
+            </section>
+
+            <section class="lesson-block" aria-labelledby="pa-lesson4-title">
+                <h2 id="pa-lesson4-title">Lesson 4: Introduction to Ratios</h2>
+                <p>A <strong>ratio</strong> compares two quantities. For example, if a recipe uses 2 cups of flour for every 1 cup of sugar, the ratio of flour to sugar is written <span aria-label="two to one">\[2:1\]</span>.</p>
+                <p>Ratios help set the stage for the variables and equations you will see in Algebra I.</p>
+            </section>
+        </section>
+
+        <section id="algebra-course" class="course-page" aria-labelledby="algebra-title">
+            <a class="back-link" href="#main-content">Back to course selection</a>
+            <div class="note" role="contentinfo">
+                <p><strong>Tip:</strong> Use the keyboard to navigate the quiz fields. Type the letter, then press Tab to move to the submit button or press Enter after the button is focused.</p>
+            </div>
+            <h2 id="algebra-title">Unit 1: Foundations of Algebra</h2>
         <p>Welcome to this accessible Algebra I mini-course. Each lesson includes a short explanation and a quick interactive checkpoint for practice.</p>
 
         <section class="lesson-block" aria-labelledby="lesson1-title">
@@ -218,11 +392,6 @@
             <p>With practice, you can use the same process for many algebra problems.</p>
         </section>
 
-        <div class="note" role="contentinfo">
-            <p><strong>Tip:</strong> Use the keyboard to navigate the quiz fields. Type the letter, then press Tab to move to the submit button or press Enter after the button is focused.</p>
-        </div>
-    </main>
-
     <script>
         function checkAnswer(questionNumber, correctOption) {
             var input = document.getElementById('q' + questionNumber + '-input');
@@ -249,10 +418,13 @@
             element.addEventListener('keydown', function(event) {
                 if (event.key === 'Enter') {
                     event.preventDefault();
-                    var questionId = this.id.match(/q(\d+)-input/);
+                    var questionId = this.id.match(/q([\w-]+)-input/);
                     if (questionId) {
                         var questionNumber = questionId[1];
-                        var button = document.querySelector('button[onclick="checkAnswer(' + questionNumber + ', \'A\')"]') ||
+                        var button = document.querySelector('button[onclick="checkAnswer(\'' + questionNumber + '\', \'A\')"]') ||
+                                     document.querySelector('button[onclick="checkAnswer(\'' + questionNumber + '\', \'B\')"]') ||
+                                     document.querySelector('button[onclick="checkAnswer(\'' + questionNumber + '\', \'C\')"]') ||
+                                     document.querySelector('button[onclick="checkAnswer(' + questionNumber + ', \'A\')"]') ||
                                      document.querySelector('button[onclick="checkAnswer(' + questionNumber + ', \'B\')"]') ||
                                      document.querySelector('button[onclick="checkAnswer(' + questionNumber + ', \'C\')"]');
                         if (button) button.click();
@@ -281,7 +453,7 @@
         
         <label for="q5-input">Your Answer (A, B, or C):</label>
         <input type="text" id="q5-input" maxlength="1" class="quiz-input" aria-required="true">
-        <button id="q5-submit" class="submit-btn">Submit Answer</button>
+        <button id="q5-submit" class="submit-btn" onclick="checkAnswer(5, 'C')">Submit Answer</button>
         <p id="q5-feedback" class="feedback-msg" aria-live="polite"></p>
     </div>
 </section>
@@ -307,10 +479,11 @@
         
         <label for="q6-input">Your Answer (A, B, or C):</label>
         <input type="text" id="q6-input" maxlength="1" class="quiz-input" aria-required="true">
-        <button id="q6-submit" class="submit-btn">Submit Answer</button>
+        <button id="q6-submit" class="submit-btn" onclick="checkAnswer(6, 'C')">Submit Answer</button>
         <p id="q6-feedback" class="feedback-msg" aria-live="polite"></p>
     </div>
 </section>
+    </main>
 
 </body>
 </html>
